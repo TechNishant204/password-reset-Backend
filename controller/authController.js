@@ -25,7 +25,7 @@ exports.forgotPassword = async (req, res) => {
     await user.save();
 
     //create client URL to send to user
-    const resetLink = `http://localhost:5175/reset-password/${token}`;
+    const resetLink = `${process.env.CLIENT_URL}/api/users/reset-password/${token}`;
 
     // send email to user via nodemailer - send(email,title,body)
     await sendEmail(
